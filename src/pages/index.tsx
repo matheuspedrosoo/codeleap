@@ -1,12 +1,10 @@
-import { Posts } from './Posts'
-import { Signup } from './Signup'
+import Signup from './Signup'
 import { Container } from './styles'
 
-export function Home() {
+export default function Home() {
 	return (
 		<Container>
-			{/* <Signup /> */}
-			<Posts />
+			<Signup />
 		</Container>
 	)
 }

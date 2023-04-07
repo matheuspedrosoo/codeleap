@@ -16,7 +16,11 @@ export const Button = styled.button`
 	cursor: pointer;
 	transition: filter 0.1s;
 
-	:hover {
+	:hover:not(:disabled) {
 		filter: brightness(0.9);
+	}
+
+	:disabled {
+		cursor: not-allowed;
 	}
 `
