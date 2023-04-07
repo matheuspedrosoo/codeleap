@@ -1,15 +1,18 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App'
 import GlobalStyle from './styles/GlobalStyles'
-import { ThemeProvider } from 'styled-components'
+import AppRoutes from './routes'
 import theme from './styles/theme'
+import { ThemeProvider } from 'styled-components'
+import { AuthProvider } from './context/AuthContext'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
 	<React.StrictMode>
 		<ThemeProvider theme={theme}>
-			<GlobalStyle />
-			<App />
+			<AuthProvider>
+				<GlobalStyle />
+				<AppRoutes />
+			</AuthProvider>
 		</ThemeProvider>
 	</React.StrictMode>
 )
