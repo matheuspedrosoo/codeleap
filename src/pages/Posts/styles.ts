@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
+	margin: 0 auto;
 	align-self: start;
 	width: 80rem;
 	background: ${({ theme }) => theme.colors.white};
@@ -19,11 +20,24 @@ export const Header = styled.div`
 	background-color: ${({ theme }) => theme.colors.blue};
 	padding: 2.7rem 3.7rem;
 
+	display: flex;
+	justify-content: space-between;
+
 	span {
 		font-size: 2.2rem;
 		line-height: 2.6rem;
 		color: ${({ theme }) => theme.colors.white};
 		font-weight: 700;
+	}
+
+	.logout {
+		border: none;
+		outline: none;
+		background: none;
+		cursor: pointer;
+		color: white;
+		font-size: 1.6rem;
+		text-decoration: underline;
 	}
 `
 
