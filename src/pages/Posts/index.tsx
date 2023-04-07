@@ -1,9 +1,19 @@
 import { FormNewPost } from './components/FormNewPost'
 import { PostItem } from './components/PostItem'
+import { useAuth } from '../../context/AuthContext'
+import { useNavigate } from 'react-router-dom'
 
 import { Container, Header, PostList } from './styles'
 
-export function Posts() {
+export default function Posts() {
+	const { logout } = useAuth()
+	const navigate = useNavigate()
+
+	const hadleLogout = () => {
+		logout()
+		navigate('/')
+	}
+
 	const data = [
 		{
 			id: 1,
@@ -41,17 +51,20 @@ export function Posts() {
 		<Container>
 			<Header>
 				<span>CodeLeap Network</span>
+				<button
+					className='logout'
+					onClick={() => hadleLogout()}
+				>
+					logout
+				</button>
 			</Header>
 
 			<FormNewPost />
 
 			{data &&
 				data.map((post) => (
-					<PostList>
-						<PostItem
-							key={post.id}
-							post={post}
-						/>
+					<PostList key={post.id}>
+						<PostItem post={post} />
 					</PostList>
 				))}
 		</Container>
