@@ -1,9 +1,12 @@
+import { Posts } from './Posts'
 import { Signup } from './Signup'
+import { Container } from './styles'
 
 export function Home() {
 	return (
-		<>
-			<Signup />
-		</>
+		<Container>
+			{/* <Signup /> */}
+			<Posts />
+		</Container>
 	)
 }
