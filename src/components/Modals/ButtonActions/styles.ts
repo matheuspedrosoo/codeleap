@@ -35,15 +35,12 @@ export const Button = styled.button<IButtonProps>`
 	transition: filter 0.5s;
 	cursor: pointer;
 
-	:hover {
-		filter: brightness(0.9);
-	}
-
 	:hover:not(:disabled) {
 		filter: brightness(0.9);
 	}
 
 	:disabled {
 		cursor: not-allowed;
+		background: ${({ theme }) => theme.colors.gray50};
 	}
 `

@@ -32,6 +32,7 @@ const InputField = ({ id, name, type, placeholder, value, onChange, label }: Inp
 					placeholder={placeholder}
 					value={value}
 					onChange={onChange}
+					autoFocus
 				/>
 			)}
 		</Container>
