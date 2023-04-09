@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 
 export const Container = styled.div`
 	margin: 0 auto;
@@ -41,6 +41,16 @@ export const Header = styled.div`
 	}
 `
 
+const sacaleIn = keyframes`
+	from {
+		transform: translateY(100px);
+	}
+
+	to {
+		transform: translateY(0);
+	}
+`
+
 export const PostList = styled.div`
 	margin: 2.4rem 0;
 	width: 75.2rem;
@@ -50,6 +60,8 @@ export const PostList = styled.div`
 	border: 0.1rem solid ${({ theme }) => theme.colors.gray60};
 	overflow: hidden;
 	position: relative;
+
+	animation: ${sacaleIn} 0.3s ease-out;
 
 	@media (max-width: 768px) {
 		width: 95%;

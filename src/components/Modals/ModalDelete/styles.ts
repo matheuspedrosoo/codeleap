@@ -1,4 +1,24 @@
-import styled from 'styled-components'
+import styled, { css, keyframes } from 'styled-components'
+
+const fadeIn = keyframes`
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+`
+
+const sacaleIn = keyframes`
+	from {
+		transform: scale(0);
+	}
+
+	to {
+		transform: scale(1);
+	}
+`
 
 export const Overlay = styled.div`
 	position: fixed;
@@ -10,6 +30,8 @@ export const Overlay = styled.div`
 	justify-content: center;
 	align-items: center;
 	background: ${({ theme }) => theme.colors.overlay};
+
+	animation: ${fadeIn} 0.3s ease-out;
 `
 
 export const Container = styled.div`
@@ -18,6 +40,8 @@ export const Container = styled.div`
 	border-radius: 1.6rem;
 	padding: 2.4rem;
 	width: 66rem;
+
+	animation: ${sacaleIn} 0.3s ease-out;
 
 	@media (max-width: 768px) {
 		width: 95%;
