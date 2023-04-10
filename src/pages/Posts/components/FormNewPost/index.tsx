@@ -5,6 +5,7 @@ import InputField from '../../../../components/InputField'
 import { useAuth } from '../../../../context/AuthContext'
 import { createPost, getPosts } from '../../../../redux/postsSlice'
 import { AppDispatch } from '../../../../redux/store'
+import { ToastError, ToastSucess } from '../../../../utils/Toast'
 
 import { FormInsertContainer } from './styles'
 
@@ -36,10 +37,11 @@ export function FormNewPost() {
 		dispatch(createPost(newPost))
 			.then(() => {
 				dispatch(getPosts())
+				ToastSucess('Successfully created!')
 				setPost({ title: '', content: '' })
 			})
 			.catch((error) => {
-				console.error('Error creating new post: ', error)
+				ToastError(`Error creating new post: ${error}`)
 			})
 	}
 

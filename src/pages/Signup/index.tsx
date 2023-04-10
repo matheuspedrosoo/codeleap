@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { ButtonCustom } from '../../components/Button'
 import { useAuth } from '../../context/AuthContext'
 import { useNavigate } from 'react-router-dom'
+import { ToastSucess } from '../../utils/Toast'
 
 import { Container } from './styles'
 
@@ -26,6 +27,8 @@ export default function Signup() {
 	const hadleLogin = () => {
 		login(name.username)
 		navigate('/posts')
+
+		ToastSucess(`Welcome ${name.username}!`)
 	}
 
 	return (

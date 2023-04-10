@@ -7,6 +7,9 @@ import store from './redux/store'
 import { ThemeProvider } from 'styled-components'
 import { AuthProvider } from './context/AuthContext'
 import { Provider } from 'react-redux'
+import { ToastContainer } from 'react-toastify'
+
+import 'react-toastify/dist/ReactToastify.css'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
 	<React.StrictMode>
@@ -14,6 +17,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
 			<ThemeProvider theme={theme}>
 				<AuthProvider>
 					<GlobalStyle />
+					<ToastContainer />
 					<AppRoutes />
 				</AuthProvider>
 			</ThemeProvider>

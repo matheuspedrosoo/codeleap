@@ -7,6 +7,7 @@ import ModalDelete from '../../../../components/Modals/ModalDelete'
 import ModalEdit from '../../../../components/Modals/ModalEdit'
 import InputField from '../../../../components/InputField'
 import moment from 'moment'
+import { ToastError, ToastSucess } from '../../../../utils/Toast'
 
 interface IPostProps {
 	post: {
@@ -53,9 +54,10 @@ export function PostItem({ post }: IPostProps) {
 		dispatch(deletePost(id))
 			.then(() => {
 				dispatch(getPosts())
+				ToastSucess('Successfully deleted!')
 			})
 			.catch((error) => {
-				console.error('Error delete post!', error)
+				ToastError(`Error delete post: ${error}`)
 			})
 	}
 
@@ -75,10 +77,11 @@ export function PostItem({ post }: IPostProps) {
 		)
 			.then(() => {
 				dispatch(getPosts())
+				ToastSucess('Successfully edited!')
 				setIsModalEditOpen(false)
 			})
 			.catch((error) => {
-				console.error('Error updating post: ', error)
+				ToastError(`Error updating post: ${error}`)
 			})
 	}
 

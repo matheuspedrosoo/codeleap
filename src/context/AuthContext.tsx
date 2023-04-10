@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useState } from 'react'
+import { ToastSucess } from '../utils/Toast'
 
 interface AuthContextData {
 	user: string
@@ -26,6 +27,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 	function logout() {
 		setUser('')
 		localStorage.removeItem('username')
+		ToastSucess('Come back always!')
 	}
 
 	return <AuthContext.Provider value={{ user, login, logout }}>{children}</AuthContext.Provider>
