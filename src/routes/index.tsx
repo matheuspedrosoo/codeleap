@@ -1,4 +1,4 @@
-import { lazy, Suspense } from 'react'
+import { lazy, Suspense, useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 
 const Home = lazy(() => import('../pages'))
@@ -20,6 +20,8 @@ const PrivateRoute = ({ children }: any) => {
 }
 
 function AppRoutes() {
+	const isAuthenticated = localStorage.getItem('username')
+
 	return (
 		<Router>
 			<Suspense fallback={<div>Loading...</div>}>
@@ -28,11 +30,27 @@ function AppRoutes() {
 						path='/'
 						element={<Home />}
 					/>
-
-					<Route
-						path='*'
-						element={<Home />}
-					/>
+					{isAuthenticated ? (
+						<Route
+							path='*'
+							element={
+								<Navigate
+									to='/posts'
+									replace
+								/>
+							}
+						/>
+					) : (
+						<Route
+							path='*'
+							element={
+								<Navigate
+									to='/'
+									replace
+								/>
+							}
+						/>
+					)}
 
 					<Route
 						path='/posts'
