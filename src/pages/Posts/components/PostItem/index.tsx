@@ -93,7 +93,7 @@ export function PostItem({ post }: IPostProps) {
 					<button onClick={() => handleOpenModal()}>
 						<img
 							className='delete'
-							src='src/assets/icon_delete.svg'
+							src='/assets/icon_delete.svg'
 							alt='Icon Edit'
 						/>
 					</button>
@@ -101,7 +101,7 @@ export function PostItem({ post }: IPostProps) {
 					<button onClick={() => handleOpenModalEdit(post)}>
 						<img
 							className='edit'
-							src='src/assets/icon_edit.svg'
+							src='/assets/icon_edit.svg'
 							alt='Icon Edit'
 						/>
 					</button>
