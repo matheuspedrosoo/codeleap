@@ -1,18 +1,10 @@
 import { useRef, useEffect } from 'react'
 import { createPortal } from 'react-dom'
+import { IModalEditProps } from '../../../Interfaces/IModal'
 import { ButtonsActions } from '../ButtonActions/buttonsActions'
 import { Container, Overlay } from './styles'
 
-interface IModalProps {
-	children?: React.ReactNode
-	title: string
-	content: string
-	isModalEditOpen: boolean
-	onCloseModalEdit: () => void
-	onSave: () => void
-}
-
-const ModalEdit = ({ children, onCloseModalEdit, title, content, onSave }: IModalProps) => {
+const ModalEdit = ({ children, onCloseModalEdit, title, content, onSave }: IModalEditProps) => {
 	const modalRef = useRef(document.createElement('div'))
 	const modalRoot = document.getElementById('modal') || document.body
 

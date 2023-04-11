@@ -1,17 +1,10 @@
 import { useRef, useEffect } from 'react'
 import { createPortal } from 'react-dom'
+import { IModalDeleteProps } from '../../../Interfaces/IModal'
 import { ButtonsActions } from '../ButtonActions/buttonsActions'
 import { Container, Overlay } from './styles'
 
-interface IModalProps {
-	children?: React.ReactNode
-	title: string
-	isModalOpen: boolean
-	onCloseModal: () => void
-	onDeletePost: () => void
-}
-
-const ModalDelete = ({ children, isModalOpen, onCloseModal, onDeletePost, title }: IModalProps) => {
+const ModalDelete = ({ onCloseModal, onDeletePost, title }: IModalDeleteProps) => {
 	const modalRef = useRef(document.createElement('div'))
 	const modalRoot = document.getElementById('modal') || document.body
 

@@ -3,12 +3,9 @@ import { ButtonCustom } from '../../components/Button'
 import { useAuth } from '../../context/AuthContext'
 import { useNavigate } from 'react-router-dom'
 import { ToastSucess } from '../../utils/Toast'
+import { ISignupState } from '../../Interfaces/IPost'
 
 import { Container } from './styles'
-
-interface ISignupState {
-	username: string
-}
 
 export default function Signup() {
 	const [name, setName] = useState<ISignupState>({

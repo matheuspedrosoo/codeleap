@@ -2,18 +2,8 @@ import { AnyAction, createAsyncThunk, createSlice, PayloadAction, ThunkDispatch 
 import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { AppDispatch, RootState } from './store'
+import { Post, PostState } from '../Interfaces/IPost'
 import api from '../services/api'
-
-interface Post {
-	id?: number
-	username: string
-	title: string
-	content: string
-}
-
-interface PostState {
-	posts: Post[]
-}
 
 const initialState: PostState = {
 	posts: []
@@ -22,6 +12,15 @@ const initialState: PostState = {
 export const getPosts = createAsyncThunk('posts/getPosts', async (_, { rejectWithValue }) => {
 	try {
 		const response = await api.get<Post[]>('/careers/')
+		return response.data
+	} catch (error) {
+		return rejectWithValue('Error getting posts')
+	}
+})
+
+export const getMorePosts = createAsyncThunk('posts/getMorePosts', async (url: string, { rejectWithValue }) => {
+	try {
+		const response = await api.get<Post[]>(`${url}`)
 		return response.data
 	} catch (error) {
 		return rejectWithValue('Error getting posts')
@@ -86,6 +85,9 @@ const postSlice = createSlice({
 					return post
 				})
 			}
+		})
+		builder.addCase(getMorePosts.fulfilled, (state, action) => {
+			state.posts = action.payload
 		})
 	}
 })
