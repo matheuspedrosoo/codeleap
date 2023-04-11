@@ -1,5 +1,6 @@
 import { lazy, Suspense, useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
+import { Spinner } from '../components/Spinner'
 
 const Home = lazy(() => import('../pages'))
 const Posts = lazy(() => import('../pages/Posts'))
@@ -24,7 +25,21 @@ function AppRoutes() {
 
 	return (
 		<Router>
-			<Suspense fallback={<div>Loading...</div>}>
+			<Suspense
+				fallback={
+					<div
+						style={{
+							width: '100%',
+							height: '100vh',
+							display: 'flex',
+							justifyContent: 'center',
+							alignItems: 'center'
+						}}
+					>
+						<Spinner />
+					</div>
+				}
+			>
 				<Routes>
 					<Route
 						path='/'
