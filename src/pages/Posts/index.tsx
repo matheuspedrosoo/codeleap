@@ -3,9 +3,16 @@ import { PostItem } from './components/PostItem'
 import { useAuth } from '../../context/AuthContext'
 import { useNavigate } from 'react-router-dom'
 import { Container, Header, PostList } from './styles'
-import { Post } from '../../Interfaces/IPost'
 import { usePagination } from './hooks/usePagination'
 import { Pagination } from './components/Pagination'
+
+export interface Post {
+	id: number
+	username: string
+	created_datetime: Date
+	title: string
+	content: string
+}
 
 export default function Posts() {
 	const { logout } = useAuth()

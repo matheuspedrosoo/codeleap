@@ -5,7 +5,7 @@ import { AppDispatch, RootState } from '../../../redux/store'
 
 export function useFetchPosts() {
 	const dispatch = useDispatch<AppDispatch>()
-	const dataPosts = useSelector((state: RootState) => state.posts.posts)
+	const dataPosts = useSelector((state: RootState) => state.posts.posts) as any
 
 	useEffect(() => {
 		dispatch(getPosts())
