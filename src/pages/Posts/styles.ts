@@ -41,7 +41,7 @@ export const Header = styled.div`
 	}
 `
 
-const sacaleIn = keyframes`
+const transitionIn = keyframes`
 	from {
 		transform: translateY(100px);
 	}
@@ -57,11 +57,11 @@ export const PostList = styled.div`
 	height: 316px;
 	padding: 2.4rem;
 	border-radius: 1.6rem;
-	border: 0.1rem solid ${({ theme }) => theme.colors.gray60};
 	overflow: hidden;
 	position: relative;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
-	animation: ${sacaleIn} 0.3s ease-out;
+	animation: ${transitionIn} 0.3s ease-out;
 
 	@media (max-width: 768px) {
 		width: 95%;
